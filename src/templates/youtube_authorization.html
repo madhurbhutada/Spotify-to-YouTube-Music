@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next Step</title>
+  </head>
+  <body>
+    <h1>Please wait.</h1>
+    <script>
+      setTimeout(function () {
+        window.location.href = "{{ url_for('process_request') }}";
+      }, 3000);
+    </script>
+  </body>
+</html>

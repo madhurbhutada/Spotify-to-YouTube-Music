@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Processing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .playlist {
+        border: 1px solid #ddd;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+      }
+      .playlist h4 {
+        margin: 0 0 6px 0;
+      }
+      .meta {
+        font-size: 0.9em;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>User: {{ username }}</h3>
+    <h3>Total number of Playlists: {{ playlist_count }}</h3>
+
+    <hr />
+
+    {% if complete_user_display_data %} {% for playlist in
+    complete_user_display_data %}
+    <div class="playlist">
+      <h4>{{ loop.index }}. {{ playlist.Name }}</h4>
+
+      {% if playlist.Description %}
+      <p>{{ playlist.Description }}</p>
+      {% else %}
+      <p><em>No description</em></p>
+      {% endif %}
+
+      <div class="meta">
+        <p><strong>Visibility:</strong> {{ playlist.Discoverability }}</p>
+        <p>
+          <strong>Collaborative:</strong> {{ "Yes" if playlist.Collaborative
+          else "No" }}
+        </p>
+        <p>
+          <strong>Number of songs:</strong> {{ playlist["Number of songs"] }}
+        </p>
+        <p><strong>Spotify playlist ID:</strong> {{ playlist.id }}</p>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>No playlists found.</p>
+    {% endif %}
+  </body>
+</html>
