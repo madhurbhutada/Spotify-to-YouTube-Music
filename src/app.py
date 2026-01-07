@@ -4,14 +4,21 @@ from flask import (
 )
 from auth import (
     generate_random_string, 
-    getCodeVerifier, getParams
+    getCodeVerifier, getParams,
+    getPayload
 )
 from urllib.parse import urlencode
 import requests as HTTPReq
 from datetime import timedelta
-from access_token import getPayload
 from handle_spotify_data import handle_data
-from personalised_ytm_script import send_script_data
+import json
+from zipfile import ZipFile
+import os
+
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent # project root
+YTMIGRATE_DIR = BASE_DIR / "ytmigrate"
+ZIP_OUTPUT = BASE_DIR / "ytmigrate.zip"
 
 app = Flask(__name__)
 secretKey = generate_random_string(16)
@@ -39,8 +46,6 @@ def verified():
     session["code"] = FlskReq.args.get('code')
     print(session["code"])
     return render_template("verified.html")
-
-# C:\Users\hp\AppData\Local\Programs\Python\Python313\Scripts\ytmusicapi.exe oauth
 
 @app.route("/access_token")
 def access_token():
@@ -119,7 +124,26 @@ def process_request():
         if offset >= total_playlists:
             break
     
-    send_script_data(complete_user_migration_data)
+    # uncompressed
+    with ZipFile(ZIP_OUTPUT, "w") as zipf:
+        zipf.writestr(
+            "spotify_data.json",
+            json.dumps(
+                complete_user_migration_data,
+                ensure_ascii=False,
+                indent=4
+            )
+        )
+
+        for root, _, files in os.walk(YTMIGRATE_DIR):
+            for file in files:
+                full_path = Path(root) / file
+
+                # strip ytmigrate/
+                arcname = full_path.relative_to(YTMIGRATE_DIR)
+
+                zipf.write(full_path, arcname)
+    
     return render_template("process_request.html", 
                            username=user_profile.get('display_name'),
                            playlist_count=total_playlists,

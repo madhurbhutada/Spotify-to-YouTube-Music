@@ -2,6 +2,7 @@ import secrets
 import string
 import hashlib
 import base64
+import os
 
 def generate_random_string(pLength: int) -> str:
     allowed_chars = string.ascii_letters + string.digits
@@ -19,9 +20,18 @@ def getParams(pCode_verifier: str):
 
     return {
         'response_type': 'code',
-        'client_id' : '69fbd6dddb834660bcfc47c1b76ff6fd',
+        'client_id' : os.getenv("CLIENT_ID"),
         'scope': 'playlist-read-private playlist-read-collaborative user-read-private user-read-email',
         'code_challenge_method': 'S256',
         'code_challenge': code_challenge,
         'redirect_uri' : 'http://127.0.0.1:5000/verified'
+    }
+
+def getPayload(pCode, pCode_verifier):
+    return {
+        'grant_type': 'authorization_code',
+        'code': pCode,
+        'redirect_uri': 'http://127.0.0.1:5000/verified',
+        'client_id': os.getenv("CLIENT_ID"),
+        'code_verifier': pCode_verifier
     }

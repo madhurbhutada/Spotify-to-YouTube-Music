@@ -6,11 +6,13 @@
     <title>Authorized</title>
   </head>
   <body>
-    <h1>Spotify authorization successful. Next step: YouTube authorization.</h1>
+    <h1>
+      Spotify authorization successful. Please wait while we load your data.
+    </h1>
     <script>
       setTimeout(function () {
         window.location.href = "{{ url_for('access_token') }}";
-      }, 5000);
+      }, 1);
     </script>
   </body>
 </html>

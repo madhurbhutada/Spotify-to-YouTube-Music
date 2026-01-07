@@ -179,3 +179,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Other
+spotify_data.json
+output.zip
+browser.json
+tracks.json
+playlists.json
+migration_logs.log
+Spotify-to-YouTube-Music.code-workspace
