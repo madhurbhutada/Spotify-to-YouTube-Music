@@ -187,4 +187,7 @@ browser.json
 tracks.json
 playlists.json
 migration_logs.log
-Spotify-to-YouTube-Music.code-workspace
+
+# VS Code workspace files
+.vscode/
+*.code-workspace
