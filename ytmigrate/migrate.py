@@ -75,7 +75,12 @@ def parse_header(header_str):
 
         if start_index == -1:
             try:
-                return json.loads(header_str)
+                parsed = json.loads(header_str)
+
+                if not isinstance(parsed, dict):
+                    raise ValueError("Ensure you've pasted Copy as fetch (Node.js) for a request starting with 'browse?'")
+
+                return parsed
             except:
                 logger.exception("Could not find 'headers' object in input.")
                 sys.exit(1)
