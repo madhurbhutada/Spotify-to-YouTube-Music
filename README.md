@@ -1,6 +1,6 @@
 # First of all
 
-A huge shoutout to open-source [https://github.com/sigma67/ytmusicapi](ytmusicapi) for making this project possible.
+A huge shoutout to open-source [ytmusicapi](https://github.com/sigma67/ytmusicapi) for making this project possible.
 
 # Link
 
