@@ -1,4 +1,4 @@
-# ytmigrate/
+# sp-ytm-migrate/
 # ├── spotify_data.json          # fetched
 # ├── migrate.py                 # core logic
 # ├── run_windows.cmd

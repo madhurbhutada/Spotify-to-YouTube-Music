@@ -178,7 +178,7 @@ After processing:
 - Inside the ZIP:
 
   ```
-    ytmigrate/
+    sp-ytm-migrate/
     ├── spotify_data.json          # Your exported Spotify playlists (input)
     ├── migrate.py                 # Core migration logic
     ├── run_windows.cmd            # Windows launcher (double-click)

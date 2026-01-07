@@ -18,7 +18,7 @@ import os
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent # project root
 YTMIGRATE_DIR = BASE_DIR / "ytmigrate"
-ZIP_OUTPUT = BASE_DIR / "ytmigrate.zip"
+ZIP_OUTPUT = BASE_DIR / "sp-ytm-migrate.zip"
 
 app = Flask(__name__)
 secretKey = generate_random_string(16)

@@ -10,24 +10,26 @@
 ## Verify your folder structure
 
 ```
-ytmigrate/
-├── spotify_data.json          # Your exported Spotify playlists (input)
-├── migrate.py                 # Core migration logic
-├── run_windows.cmd            # Windows launcher (double-click)
-├── run_macos.command          # macOS launcher (double-click)
-├── runtime_templates/
-│   ├── windows/
-│   │     ├── python/
-│   │     │    └── python.exe
-│   │     └── site-packages/
-│   │          └── ytmusicapi/
-│   └── macos/
-│         ├── python/
-│         │   └── bin/python3
-│         └── site-packages/
-│             └── ytmusicapi/
-├── migration_logs.log         # Created automatically
-└── README.md
+  sp-ytm-migrate/
+  ├── spotify_data.json          # Your exported Spotify playlists (input)
+  ├── migrate.py                 # Core migration logic
+  ├── run_windows.cmd            # Windows launcher (double-click)
+  ├── run_macos.command          # Not added
+  ├── runtime_templates/
+  │   ├── windows/
+  │   │     ├── python/
+  │   │     │    └── python.exe
+  │   │     └── site-packages/
+  │   │          └── ytmusicapi/
+  │   └── macos/
+  │         ├── python/
+  │         │   └── bin/python3  # Not added
+  │         │   └── README.md
+  │         └── site-packages/
+  │             └── ytmusicapi/  # Not added
+  │             └── README.md
+  ├── migration_logs.log         # Created automatically
+  └── README.md
 ```
 
 ---
@@ -103,6 +105,7 @@ In your folder, inside runtime_templates > macos, go to python and site-packages
 You will find instructions regarding the setup.
 
 runtime_templates/macos/python/README.txt → "Python 3 binary goes here"
+
 runtime_templates/macos/site-packages/README.txt → "ytmusicapi package goes here"
 
 Eventually, you need to make sure that the migrate.py script runs without errors :)
