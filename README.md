@@ -12,7 +12,7 @@ A huge shoutout to open-source [ytmusicapi](https://github.com/sigma67/ytmusicap
 
 ### To access this app, you may need to run it locally. Details have been added.
 
-If I have not given you access you can easily follow the steps listed below to run this on your machine (free). You need **Python 3.8+** installed.
+If I have not given you access to the link, you can easily follow the steps listed below to run this on your machine (free). You need **Python 3.8+** installed.
 This is very smooth for Windows, but may need some additional steps for Mac.
 
 The steps cover:
@@ -20,7 +20,7 @@ The steps cover:
 1. Spotify authentication (Flask app)
 2. Spotify Developer app creation
 3. Data export flow
-4. How it integrates with **ytmigrate.zip**
+4. How it integrates with **sp-ytm-migrate.zip**
 5. Steps written for **non-technical users**, with optional technical notes
 
 This assumes users **clone the repository and run it locally**.
@@ -33,7 +33,7 @@ This project helps you migrate your **Spotify playlists** to **YouTube Music** i
 
 1. **Spotify Export Tool (Web App)**
    Securely logs into Spotify and generates your playlist data.
-2. **ytmigrate Tool (Offline Script)**
+2. **ytmigrate Tool** (script with bundled python runtime)
    Uses that data to recreate playlists on YouTube Music.
 
 - Runs fully on your machine
@@ -172,7 +172,7 @@ After processing:
 - A zip file is created:
 
   ```
-  ytmigrate.zip
+  sp-ytm-migrate.zip
   ```
 
 - Inside the ZIP:
@@ -220,7 +220,7 @@ But in short:
 ### Windows
 
 ```
-1. Extract ytmigrate.zip
+1. Extract sp-ytm-migrate.zip
 2. Double-click run_windows.cmd
 3. Follow browser login steps (one-time)
 ```
@@ -228,7 +228,7 @@ But in short:
 ### macOS
 
 ```
-1. Extract ytmigrate.zip
+1. Extract sp-ytm-migrate.zip
 2. Set up python and site-packages (one-time)
 3. Make sure migrate.py runs smoothly
 4. Follow browser login steps (one-time)
@@ -259,7 +259,7 @@ But in short:
 - YouTube Music migration:
 
   ```
-  ytmigrate/migration_logs.log
+  sp-ytm-migrate/migration_logs.log
   ```
 
 ---
@@ -272,9 +272,9 @@ To fully reset:
 - Delete:
 
   ```
-  ytmigrate.zip
-  ytmigrate/browser.json
-  ytmigrate/migration_logs.log
+  sp-ytm-migrate.zip
+  sp-ytm-migrate/browser.json
+  sp-ytm-migrate/migration_logs.log
   ```
 
 ---
